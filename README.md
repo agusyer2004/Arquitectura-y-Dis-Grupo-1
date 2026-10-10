@@ -16,8 +16,10 @@ Plataforma full-stack para gestionar estacionamiento medido con tres roles:
 
 | Rol | Email | Contraseña |
 |---|---|---|
-| Conductor | `conductor.demo@gmail.com` | `conductor123` |
-| Inspector | `inspector.demo@gmail.com` | `inspector123` |
+| Conductor | `conductor.demo+clerk_test@gmail.com` | `conductor123` |
+| Inspector | `inspector.demo+clerk_test@gmail.com` | `inspector123` |
+
+Si la app pide un código de verificación, ingresar `424242` (emails de prueba de Clerk, no se envía ningún mail).
 
 **Pagos (sandbox de Mercado Pago, no se cobra dinero real).** Al cargar saldo o pagar una multa, iniciar sesión en Mercado Pago con el comprador de prueba:
 
