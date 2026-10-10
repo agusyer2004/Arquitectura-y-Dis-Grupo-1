@@ -4,8 +4,7 @@ services:
     runtime: node
     plan: free
     rootDir: backend-estacionamiento
-    buildCommand: npm ci && npx prisma generate
-    preDeployCommand: npx prisma migrate deploy
+    buildCommand: npm ci && npx prisma generate && npx prisma migrate deploy
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:

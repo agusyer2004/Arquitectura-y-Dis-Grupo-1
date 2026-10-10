@@ -44,7 +44,7 @@ Con `MP_MODO_SIMULADO=true` los pagos se aprueban sin contactar a Mercado Pago.
 ## Deploy
 
 1. **Base de datos:** MySQL gestionado (Aiven / Railway / TiDB Cloud). Copiar la `DATABASE_URL`.
-2. **Backend (Render):** New → Blueprint → elegir este repo (usa [render.yaml](render.yaml)). Completar las variables marcadas en el dashboard. Las migraciones corren solas en cada deploy.
+2. **Backend (Render):** New → Blueprint → elegir este repo (usa [render.yaml](render.yaml)). Completar las variables marcadas en el dashboard. Las migraciones corren solas en cada build.
 3. **Frontend (Vercel):** importar el repo con *Root Directory* `frontend-estacionamiento`. Variables: `VITE_API_URL=https://<api>.onrender.com/api` y `VITE_CLERK_PUBLISHABLE_KEY`.
 4. En Render, setear `FRONTEND_URL` y `MP_BACK_URL` con la URL de Vercel (CORS y retorno de pagos).
 5. En Clerk, agregar la URL de Vercel a los dominios permitidos.
