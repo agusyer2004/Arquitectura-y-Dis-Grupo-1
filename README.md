@@ -12,12 +12,12 @@ Plataforma full-stack para gestionar estacionamiento medido con tres roles:
 
 > La API corre en el plan gratuito de Render: la primera carga puede tardar ~50 s.
 
-**Usuarios de la app** _(completar con los usuarios demo creados en Clerk)_
+**Usuarios de la app**
 
 | Rol | Email | Contraseña |
 |---|---|---|
-| Conductor | _..._ | _..._ |
-| Inspector | _..._ | _..._ |
+| Conductor | `conductor.demo@gmail.com` | `conductor123` |
+| Inspector | `inspector.demo@gmail.com` | `inspector123` |
 
 **Pagos (sandbox de Mercado Pago, no se cobra dinero real).** Al cargar saldo o pagar una multa, iniciar sesión en Mercado Pago con el comprador de prueba:
 
