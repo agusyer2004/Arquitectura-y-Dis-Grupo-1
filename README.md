@@ -8,6 +8,27 @@ Plataforma full-stack para gestionar estacionamiento medido con tres roles:
 
 **Demo:** _(link de Vercel)_ · **API:** _(link de Render)_
 
+## Probar la demo
+
+> La API corre en el plan gratuito de Render: la primera carga puede tardar ~50 s.
+
+**Usuarios de la app** _(completar con los usuarios demo creados en Clerk)_
+
+| Rol | Email | Contraseña |
+|---|---|---|
+| Conductor | _..._ | _..._ |
+| Inspector | _..._ | _..._ |
+
+**Pagos (sandbox de Mercado Pago, no se cobra dinero real).** Al cargar saldo o pagar una multa, iniciar sesión en Mercado Pago con el comprador de prueba:
+
+| Dato | Valor |
+|---|---|
+| Usuario | `TESTUSER3697755268080454926` |
+| Contraseña | `IPJHlJ3vru` |
+| Código de verificación | `565532` |
+
+Alternativa: pagar como invitado con la tarjeta de prueba Mastercard `5031 7557 3453 0604`, venc. `11/30`, CVV `123`, titular `APRO`, DNI `12345678`.
+
 ## Stack
 
 | Capa | Tecnologías |
