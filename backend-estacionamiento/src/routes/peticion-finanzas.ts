@@ -9,6 +9,12 @@ peticionFinanzas.post(
   FinanzasController.recibirWebhookMercadoPago
 );
 
+// Mercado Pago exige una URL de retorno https: vuelve al backend y este redirige al frontend.
+peticionFinanzas.get('/retorno', (_req, res) => {
+  const frontend = process.env.FRONTEND_URL || 'http://localhost:5173';
+  res.redirect(`${frontend}/conductor`);
+});
+
 peticionFinanzas.use(exigirAutenticacion);
 peticionFinanzas.use(exigirRoles('CONDUCTOR'));
 peticionFinanzas.get('/saldo', FinanzasController.obtenerSaldo);

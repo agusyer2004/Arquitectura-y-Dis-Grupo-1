@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client';
-import { MercadoPagoAdapter } from '../adapters/adapter-mercadoPago';
+import { MercadoPagoAdapter, MP_SIMULADO } from '../adapters/adapter-mercadoPago';
 import { orm } from '../repositories/orm-config';
 import { PagoRepository } from '../repositories/repository-pago';
 import { MultaService } from './service-multa';
@@ -57,6 +57,10 @@ async function crearPreferencia(operacion: {
     });
 
     await PagoRepository.guardarPreferencia(operacion.id, preferencia.id);
+
+    if (MP_SIMULADO) {
+      await BilleteraService.procesarPagoNotificado(preferencia.id);
+    }
 
     return {
       operacionId: operacion.id,

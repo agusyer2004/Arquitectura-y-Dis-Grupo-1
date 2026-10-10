@@ -34,12 +34,25 @@ async function solicitar<T>(ruta: string, opciones: RequestInit = {}) {
   return await respuesta.json() as T;
 }
 
+// Modo de pruebas: no se contacta a Mercado Pago y los pagos se aprueban al instante.
+export const MP_SIMULADO = process.env.MP_MODO_SIMULADO === 'true';
+
 export const MercadoPagoAdapter = {
   crearPreferencia: async (datos: {
     referenciaExterna: string;
     titulo: string;
     monto: number;
   }) => {
+    if (MP_SIMULADO) {
+      const retorno = process.env.MP_BACK_URL || 'http://localhost:5173/conductor';
+
+      return {
+        id: `SIM-${datos.referenciaExterna}-${datos.monto}`,
+        init_point: retorno,
+        sandbox_init_point: retorno
+      };
+    }
+
     const notificationUrl = process.env.MP_WEBHOOK_URL;
     const backUrl = process.env.MP_BACK_URL;
     const usarRetornoAutomatico = backUrl?.startsWith('https://');
@@ -74,6 +87,17 @@ export const MercadoPagoAdapter = {
   },
 
   obtenerPago: async (paymentId: string) => {
+    if (MP_SIMULADO && paymentId.startsWith('SIM-')) {
+      const [, operacionId, monto] = paymentId.split('-');
+
+      return {
+        id: Number(operacionId),
+        status: 'approved',
+        external_reference: operacionId,
+        transaction_amount: Number(monto)
+      };
+    }
+
     return await solicitar<{
       id: number;
       status: string;
