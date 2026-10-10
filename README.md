@@ -6,7 +6,7 @@ Plataforma full-stack para gestionar estacionamiento medido con tres roles:
 - **Inspector:** verifica patentes, labra multas y consulta multas existentes.
 - **Administrador:** dibuja zonas en un mapa, define precios, horario de cobro e inspectores.
 
-**Demo:** _(link de Vercel)_ · **API:** _(link de Render)_
+**Demo:** https://arquitectura-y-dis-grupo-1.vercel.app · **API:** _(link de Render)_
 
 ## Probar la demo
 
