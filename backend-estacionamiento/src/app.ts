@@ -30,6 +30,8 @@ app.use(cors({
 app.use(express.json());
 app.use(clerkMiddleware());
 
+app.get('/api/health', (_req, res) => { res.json({ ok: true }); });
+
 app.use('/api', peticionLogin);
 app.use('/api/vehiculos', peticionVehiculo);
 app.use('/api/estacionamientos', peticionEstacionamiento);

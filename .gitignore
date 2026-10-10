@@ -1,3 +1,6 @@
-backend-estacionamiento/node_modules/
-backend-estacionamiento/.env
-frontend-estacionamiento/.env
+node_modules/
+.env
+*.log
+.vite/
+dist/
+.DS_Store

@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: estacionamiento-api
+    runtime: node
+    plan: free
+    rootDir: backend-estacionamiento
+    buildCommand: npm ci && npx prisma generate
+    preDeployCommand: npx prisma migrate deploy
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: CLERK_PUBLISHABLE_KEY
+        sync: false
+      - key: CLERK_SECRET_KEY
+        sync: false
+      - key: MP_MODO_SIMULADO
+        value: "true"
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: MP_WEBHOOK_SECRET
+        sync: false
+      - key: MP_WEBHOOK_URL
+        sync: false
+      - key: MP_BACK_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
